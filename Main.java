@@ -115,12 +115,12 @@ public class Main {
 
         System.out.println("---  REGISTERING 10 PATIENTS  ---");
 
-        // 3 Tane ACİL (Priority) Hasta
+
         myHospitalSystem.registerPatient(1001, "Acil Ahmet", 9, 70, true);
         myHospitalSystem.registerPatient(1002, "Acil Zeynep", 8, 25, true);
         myHospitalSystem.registerPatient(1003, "Acil Mehmet", 10, 65, true);
 
-        // 7 Tane NORMAL Hasta
+    
         myHospitalSystem.registerPatient(2001, "Normal Ali", 3, 30, false);
         myHospitalSystem.registerPatient(2002, "Normal Veli", 2, 40, false);
         myHospitalSystem.registerPatient(2003, "Normal Ayse", 1, 22, false);
@@ -145,7 +145,7 @@ public class Main {
         try {
             
             myHospitalSystem.processTreatment(); 
-            Thread.sleep(500);
+            Thread.sleep(500);// waiting
             myHospitalSystem.processTreatment(); 
             Thread.sleep(500);
             myHospitalSystem.processTreatment(); 
