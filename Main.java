@@ -108,8 +108,59 @@ public class Main {
         stack.pop();
         stack.printStack();
         stack.peek();
-       
+
+       System.out.println("\n\n**************** INTEGRATED HOSPITAL SYSTEM TEST ****************");
         
-    }
+        HospitalSystem myHospitalSystem = new HospitalSystem();
+
+        System.out.println("---  REGISTERING 10 PATIENTS  ---");
+
+        // 3 Tane ACİL (Priority) Hasta
+        myHospitalSystem.registerPatient(1001, "Acil Ahmet", 9, 70, true);
+        myHospitalSystem.registerPatient(1002, "Acil Zeynep", 8, 25, true);
+        myHospitalSystem.registerPatient(1003, "Acil Mehmet", 10, 65, true);
+
+        // 7 Tane NORMAL Hasta
+        myHospitalSystem.registerPatient(2001, "Normal Ali", 3, 30, false);
+        myHospitalSystem.registerPatient(2002, "Normal Veli", 2, 40, false);
+        myHospitalSystem.registerPatient(2003, "Normal Ayse", 1, 22, false);
+        myHospitalSystem.registerPatient(2004, "Normal Fatma", 2, 21, false);
+        myHospitalSystem.registerPatient(2005, "Normal Hasan", 4, 50, false);
+        myHospitalSystem.registerPatient(2006, "Normal Elif", 1, 28, false);
+        myHospitalSystem.registerPatient(2007, "Normal Can", 2, 33, false);
+
+        
+        System.out.println("---  ADDING PAST DISCHARGE RECORDS ---");
+        DischargeRecord oldpatient = new DischargeRecord(9991);
+        myHospitalSystem.dischargeStack.push(oldpatient);
+        DischargeRecord oldpatient2 = new DischargeRecord(9992);
+        myHospitalSystem.dischargeStack.push(oldpatient2);
+
+        
+        System.out.println("\n---  INITIAL SYSTEM STATE ---");
+        myHospitalSystem.printSystemState();
+
     
-}
+        System.out.println("---  PROCESSING TREATMENTS (Priority First) ---");
+        try {
+            
+            myHospitalSystem.processTreatment(); 
+            Thread.sleep(500);
+            myHospitalSystem.processTreatment(); 
+            Thread.sleep(500);
+            myHospitalSystem.processTreatment(); 
+            Thread.sleep(500);
+            myHospitalSystem.processTreatment();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n--- 5. FINAL SYSTEM REPORT ---");
+        myHospitalSystem.printSystemState();
+
+        System.out.println("**************** TEST COMPLETED ****************");
+    }
+        
+
+ } 
+
+        
